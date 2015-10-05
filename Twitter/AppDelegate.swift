@@ -12,11 +12,32 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var storyboard = UIStoryboard(name: "Main", bundle:nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        
+        navigationBarAppearace.barTintColor = UIColor(red: 85/255, green: 172/255, blue: 238/255, alpha: 1)
+        navigationBarAppearace.tintColor = UIColor.whiteColor()
+        
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationBarAppearace.titleTextAttributes = titleDict as! [String : AnyObject]
         // Override point for customization after application launch.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+        
+        if User.currentUser != nil{
+            //go to logged in screen
+            print("current user detected: \(User.currentUser!.name)")
+            var vc = storyboard.instantiateViewControllerWithIdentifier("NavigationFromLogin") as! UINavigationController
+            window?.rootViewController = vc
+        }
         return true
+    }
+    
+    func userDidLogout(){
+        var vc = storyboard.instantiateInitialViewController() as UIViewController!
+        window?.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -41,6 +62,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        
+        // for prod check to see if path says OAuth and then direct it to the twitterclient URL
+        TwitterClient.sharedInstance.openURL(url)
+        return true
+    }
 
 }
 
