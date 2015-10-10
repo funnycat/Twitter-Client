@@ -38,7 +38,8 @@ class TweetDetailsViewController: UIViewController {
         usernameLabel.text = tweet.user?.screenname
         nameLabel.text = tweet.user?.name
         profilePictureImageView.setImageWithURL(NSURL(string:(tweet.user?.profileImageUrl)!))
-        
+        profilePictureImageView.layer.cornerRadius = 3
+        profilePictureImageView.clipsToBounds = true
    
         if(tweet.favorited == true){
             //disable button
@@ -53,8 +54,27 @@ class TweetDetailsViewController: UIViewController {
         replyView.hidden = true
         
 
+        let tapGesture = UITapGestureRecognizer(target: self, action: "imageTapped:")
+        
+        // add it to the image view;
+        profilePictureImageView.addGestureRecognizer(tapGesture)
+        // make sure imageView can be interacted with by user
+        profilePictureImageView.userInteractionEnabled = true
+        
+
         // Do any additional setup after loading the view.
     }
+    
+    func imageTapped(gesture: UIGestureRecognizer) {
+        // if the tapped view is a UIImageView then set it to imageview
+        if let profilePictureImageView = gesture.view as? UIImageView {
+            print("Image Tapped")
+            self.performSegueWithIdentifier("showTweetProfileSegue", sender: self)
+            //Here you can initiate your new ViewController
+            
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -112,6 +132,22 @@ class TweetDetailsViewController: UIViewController {
         }
         replyView.hidden = true
         replyButton.enabled = true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        if segue.identifier == "showTweetProfileSegue" {
+            let profileViewController = segue.destinationViewController as! ProfileViewController
+            
+            let assignedUser = tweet.user!
+            
+            profileViewController.profileUser = assignedUser
+            
+        }
+        
+        
+        
     }
     /*
     // MARK: - Navigation

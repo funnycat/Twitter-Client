@@ -13,6 +13,7 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
     var tweets: [Tweet]!
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
+    var segueToUser: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,10 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
         dummyTableVC.tableView = tableView
         dummyTableVC.refreshControl = refreshControl
         
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "fetchTweets", name: newTweetCreated, object: nil)
+        
+        segueToUser = User.currentUser!
         
         fetchTweets()
         
@@ -46,6 +50,11 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
             })
             
         })
+    }
+    
+    func tweetCellController(tweetCellController: TweetCell, didClickImage user: User) {
+        segueToUser = user
+        performSegueWithIdentifier("showProfileSegue", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,9 +81,10 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
         }
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "detailsSegue" {
+        if segue.identifier == "showDetailsSegue" {
 
             let tweetsDetailsViewController = segue.destinationViewController as! TweetDetailsViewController
             let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
@@ -82,6 +92,26 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
             let tweet = tweets![indexPath!.row]
             tweetsDetailsViewController.tweet = tweet
         }
+        
+        if segue.identifier == "showProfileSegue" {
+            let profileViewController = segue.destinationViewController as! ProfileViewController
+         //   let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+            
+        //    let assignedUser = tweets![indexPath!.row].user!
+
+            profileViewController.profileUser = segueToUser
+        
+        }
+        
+//        if segue.identifier == "showProfileFromFeedSegue" {
+//            let profileViewController = segue.destinationViewController as! ProfileViewController
+//            let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+//            
+//            let assignedUser = tweets![indexPath!.row].user!
+//            
+//            profileViewController.profileUser = assignedUser
+//            
+//        }
         
         
         

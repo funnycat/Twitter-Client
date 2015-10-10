@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9448A8654C93280C894CA2892198FE571E9148FD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9448A8654C93280C894CA2892198FE571E9148FD" : 0,
+    "711800C0E383F906C9393AA739639252CEA6F5E7" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B123F62C-BE1F-447B-A124-FCF21461F091",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9448A8654C93280C894CA2892198FE571E9148FD" : "Twitter\/",
+    "711800C0E383F906C9393AA739639252CEA6F5E7" : "Twitter\/Twitter\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Twitter",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Twitter.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/funnycat\/Twitter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "711800C0E383F906C9393AA739639252CEA6F5E7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/funnycat\/Twitter-Client.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9448A8654C93280C894CA2892198FE571E9148FD"
+    }
+  ]
+}
