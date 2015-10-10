@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate, TweetCellDelegate {
     
     var tweets: [Tweet]!
     @IBOutlet weak var tableView: UITableView!
@@ -52,10 +52,6 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
         })
     }
     
-    func tweetCellController(tweetCellController: TweetCell, didClickImage user: User) {
-        segueToUser = user
-        performSegueWithIdentifier("showProfileSegue", sender: nil)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,6 +65,8 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         
+        cell.delegate = self
+        
         cell.tweet = self.tweets[indexPath.row]
         return cell
     }
@@ -81,6 +79,13 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
         }
     }
     
+    func tweetCellController(tweetCellController: TweetCell, didClickImage user: User){
+        
+        self.segueToUser = user
+        performSegueWithIdentifier("showProfileSegue", sender: self)
+    }
+    
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -94,6 +99,10 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
         }
         
         if segue.identifier == "showProfileSegue" {
+            if (sender?.title == "profile"){
+                segueToUser = User.currentUser!
+            }
+            
             let profileViewController = segue.destinationViewController as! ProfileViewController
          //   let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
             

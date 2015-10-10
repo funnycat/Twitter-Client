@@ -163,7 +163,7 @@
                             </barButtonItem>
                             <barButtonItem title="Profile" id="iA3-7i-9YL">
                                 <connections>
-                                    <segue destination="laO-fS-sWY" kind="show" identifier="showProfileSegue" id="xwR-NB-c3C"/>
+                                    <segue destination="laO-fS-sWY" kind="show" identifier="showProfileSegue" id="HCc-Ui-Teb"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -708,6 +708,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EqX-1l-gjX"/>
-        <segue reference="xwR-NB-c3C"/>
+        <segue reference="HCc-Ui-Teb"/>
     </inferredMetricsTieBreakers>
 </document>
