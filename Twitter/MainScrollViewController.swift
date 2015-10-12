@@ -95,6 +95,47 @@ class MainScrollViewController: UIViewController {
         }
     }
     
+    @IBAction func onContainerViewPan(panGestureRecognizer: UIPanGestureRecognizer) {
+        let point = panGestureRecognizer.locationInView(view)
+        let translation = panGestureRecognizer.translationInView(view)
+        let velocity = panGestureRecognizer.velocityInView(view)
+        
+        switch panGestureRecognizer.state {
+        case .Began:
+            print("Gesture began at: \(point)")
+            menuOriginalCenter = menuView.center
+        case .Changed:
+            print("Gesture changed at: \(point)")
+            if(menuView.frame.origin.x + translation.x < (menuView.frame.width/4)){
+                menuView.center = CGPoint(x: menuOriginalCenter.x + translation.x,
+                    y: menuOriginalCenter.y)
+            }
+            
+        case .Ended:
+            
+            print("Gesure ended at: \(point)")
+            
+            UIView.animateWithDuration(0.5, delay:0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options:[], animations:{
+                if velocity.x > 0{
+                    //moving out
+                    self.menuView.center = CGPoint(x: self.menuView.frame.width/2,
+                        y: self.menuOriginalCenter.y)
+                }
+                else{
+                    //moving back
+                    self.menuView.center = CGPoint(x: self.menuXOrigin,
+                        y: self.menuOriginalCenter.y)
+                    
+                }
+                },
+                completion:nil)
+            
+            
+        default:
+            print("Unhandled gesture")
+        }
+    }
+    
     @IBAction func onMenuPanGesture(panGestureRecognizer: UIPanGestureRecognizer) {
         let point = panGestureRecognizer.locationInView(view)
         let translation = panGestureRecognizer.translationInView(view)

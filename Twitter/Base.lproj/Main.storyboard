@@ -690,6 +690,10 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kU-Zs-5f8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GgE-9s-sEC" appends="YES" id="std-BE-Lex"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CpO-p6-k1F">
                                 <rect key="frame" x="-240" y="0.0" width="240" height="600"/>
@@ -754,6 +758,11 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="pDU-OR-llE">
                     <connections>
                         <action selector="onMenuPanGesture:" destination="41e-Ka-zPW" id="Po9-Lx-wyW"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="GgE-9s-sEC">
+                    <connections>
+                        <action selector="onContainerViewPan:" destination="41e-Ka-zPW" id="A1W-Ym-Uw0"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
