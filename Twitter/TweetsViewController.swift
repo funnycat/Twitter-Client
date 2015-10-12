@@ -14,6 +14,9 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
     var segueToUser: User?
+    
+    var type : String?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +45,31 @@ class TweetsViewController: UIViewController,  UITableViewDataSource, UITableVie
     }
     
     func fetchTweets(){
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion:{(tweets, error)->() in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tweets = tweets
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
+        
+        if(type==nil){
+            type = "tweets"
+        }
+        
+        if(type == "tweets"){
+            TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion:{(tweets, error)->() in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tweets = tweets
+                    self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                })
+                
             })
-            
-        })
+        }
+        else if(type == "mentions"){
+            TwitterClient.sharedInstance.mentionsTimelineWithParams(nil, completion:{(tweets, error)->() in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tweets = tweets
+                    self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                })
+                
+            })
+        }
     }
     
 

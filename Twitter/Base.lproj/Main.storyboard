@@ -4,7 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -39,17 +38,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="HB8-ak-7HR" kind="presentation" identifier="loginSegue" id="xoj-z4-ETI"/>
+                        <segue destination="41e-Ka-zPW" kind="presentation" identifier="loginSegue" id="tPl-gR-hoI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="951"/>
+            <point key="canvasLocation" x="291" y="1031"/>
         </scene>
-        <!--Home-->
+        <!--TweetsListView-->
         <scene sceneID="hF4-UQ-NZA">
             <objects>
-                <viewController storyboardIdentifier="TweetsViewController" id="9sT-s6-hpO" customClass="TweetsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsListView" title="TweetsListView" id="9sT-s6-hpO" customClass="TweetsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QsX-YO-NIP"/>
                         <viewControllerLayoutGuide type="bottom" id="0cv-fU-V3d"/>
@@ -138,7 +137,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0cv-fU-V3d" firstAttribute="top" secondItem="3vz-8J-rXv" secondAttribute="bottom" id="Esg-by-qQ9"/>
+                            <constraint firstItem="0cv-fU-V3d" firstAttribute="top" secondItem="3vz-8J-rXv" secondAttribute="bottom" id="5KL-xm-Gk7"/>
                             <constraint firstItem="3vz-8J-rXv" firstAttribute="top" secondItem="bT4-VT-60H" secondAttribute="top" id="dVB-sy-FbC"/>
                             <constraint firstAttribute="trailing" secondItem="3vz-8J-rXv" secondAttribute="trailing" id="sPT-c1-rNw"/>
                             <constraint firstItem="3vz-8J-rXv" firstAttribute="leading" secondItem="bT4-VT-60H" secondAttribute="leading" id="x1W-Tu-zOo"/>
@@ -155,26 +154,20 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="New" id="tU2-tC-j33">
-                                <connections>
-                                    <segue destination="bwA-YF-ycr" kind="show" id="RCk-Ya-G2R"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Profile" id="iA3-7i-9YL">
-                                <connections>
-                                    <segue destination="laO-fS-sWY" kind="show" identifier="showProfileSegue" id="HCc-Ui-Teb"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="tU2-tC-j33">
+                            <connections>
+                                <segue destination="bwA-YF-ycr" kind="show" id="RCk-Ya-G2R"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="3vz-8J-rXv" id="WzY-Oh-KL5"/>
+                        <segue destination="laO-fS-sWY" kind="show" identifier="showProfileSegue" id="Lp2-pf-AI3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43D-nG-d1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711" y="317"/>
+            <point key="canvasLocation" x="1695" y="305"/>
         </scene>
         <!--Tweet Details View Controller-->
         <scene sceneID="ihp-Jw-o7e">
@@ -317,15 +310,16 @@
                         <constraints>
                             <constraint firstItem="cH4-fR-tN9" firstAttribute="leading" secondItem="QS2-5F-S6G" secondAttribute="trailing" constant="10" id="0L3-h6-1hA"/>
                             <constraint firstItem="QS2-5F-S6G" firstAttribute="leading" secondItem="twJ-30-Xfu" secondAttribute="leading" constant="10" id="2ey-AL-vvB"/>
+                            <constraint firstItem="aN2-fN-k37" firstAttribute="top" secondItem="XCi-PU-18q" secondAttribute="bottom" constant="369" id="2uh-eh-a1R"/>
                             <constraint firstItem="h61-oD-btJ" firstAttribute="leading" secondItem="QS2-5F-S6G" secondAttribute="leading" id="2ui-gd-FQK"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="5E0-wB-wn5" secondAttribute="trailing" constant="10" id="31Z-89-WmM"/>
-                            <constraint firstItem="QS2-5F-S6G" firstAttribute="top" secondItem="HNi-rw-Yyx" secondAttribute="bottom" constant="20" id="3Os-Vu-pSe"/>
                             <constraint firstItem="jDb-A2-ViG" firstAttribute="top" secondItem="bm2-d3-Inw" secondAttribute="bottom" constant="20" id="5vA-Rm-dVz"/>
+                            <constraint firstItem="cH4-fR-tN9" firstAttribute="top" secondItem="HNi-rw-Yyx" secondAttribute="bottom" constant="20" id="9LU-dN-kx3"/>
                             <constraint firstItem="OBD-rp-S5m" firstAttribute="centerY" secondItem="bm2-d3-Inw" secondAttribute="centerY" id="ATM-SM-NXd"/>
                             <constraint firstItem="5E0-wB-wn5" firstAttribute="top" secondItem="cH4-fR-tN9" secondAttribute="bottom" constant="5" id="D1d-ox-T3i"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h61-oD-btJ" secondAttribute="trailing" constant="10" id="DFp-ca-fxP"/>
+                            <constraint firstItem="QS2-5F-S6G" firstAttribute="top" secondItem="HNi-rw-Yyx" secondAttribute="bottom" constant="20" id="EiW-dn-IrM"/>
                             <constraint firstItem="Ybs-GH-1vW" firstAttribute="leading" secondItem="bm2-d3-Inw" secondAttribute="trailing" constant="30" id="FNV-HM-saU"/>
-                            <constraint firstItem="aN2-fN-k37" firstAttribute="top" secondItem="XCi-PU-18q" secondAttribute="bottom" constant="369" id="FO2-DR-4nw"/>
                             <constraint firstItem="Iz7-mv-s2z" firstAttribute="centerY" secondItem="XCi-PU-18q" secondAttribute="centerY" id="HBz-6k-2bQ"/>
                             <constraint firstItem="cOk-8j-uYK" firstAttribute="leading" secondItem="QS2-5F-S6G" secondAttribute="leading" id="HcE-kZ-7am"/>
                             <constraint firstAttribute="trailing" secondItem="WaZ-Tm-DJ0" secondAttribute="trailing" id="HqA-bg-4c6"/>
@@ -341,7 +335,6 @@
                             <constraint firstItem="WaZ-Tm-DJ0" firstAttribute="leading" secondItem="twJ-30-Xfu" secondAttribute="leading" id="VZ0-Ra-hBQ"/>
                             <constraint firstItem="Ybs-GH-1vW" firstAttribute="centerY" secondItem="bm2-d3-Inw" secondAttribute="centerY" id="WJF-Zc-lIN"/>
                             <constraint firstItem="Ybs-GH-1vW" firstAttribute="centerX" secondItem="twJ-30-Xfu" secondAttribute="centerX" id="YRm-FX-wHy"/>
-                            <constraint firstItem="cH4-fR-tN9" firstAttribute="top" secondItem="HNi-rw-Yyx" secondAttribute="bottom" constant="20" id="ZH7-Y7-yg2"/>
                             <constraint firstItem="Ybs-GH-1vW" firstAttribute="centerY" secondItem="bm2-d3-Inw" secondAttribute="centerY" id="a6X-RJ-6bX"/>
                             <constraint firstItem="XCi-PU-18q" firstAttribute="top" secondItem="cOk-8j-uYK" secondAttribute="bottom" constant="10" id="cOJ-l8-DS4"/>
                             <constraint firstItem="jDb-A2-ViG" firstAttribute="leading" secondItem="twJ-30-Xfu" secondAttribute="leading" id="dsW-S8-Hae"/>
@@ -395,12 +388,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dva-2Q-cne" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797" y="1081"/>
+            <point key="canvasLocation" x="1695" y="1074"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="CWd-NN-Uoo">
             <objects>
-                <viewController id="laO-fS-sWY" customClass="ProfileViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileStoryboard" id="laO-fS-sWY" customClass="ProfileViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="myZ-Oo-oOv"/>
                         <viewControllerLayoutGuide type="bottom" id="I8t-Pg-U3A"/>
@@ -662,7 +655,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVH-Oc-3tI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2478" y="305"/>
+            <point key="canvasLocation" x="2398" y="-449"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rsJ-kr-GSt">
@@ -680,12 +673,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GdX-sx-5uw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="305"/>
+            <point key="canvasLocation" x="891" y="305"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Scroll View Controller-->
         <scene sceneID="dGY-Y1-I2P">
             <objects>
-                <viewController id="41e-Ka-zPW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuNavigationFromLogin" id="41e-Ka-zPW" customClass="MainScrollViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tMm-pI-fzg"/>
                         <viewControllerLayoutGuide type="bottom" id="q0h-b6-Yl4"/>
@@ -693,11 +686,78 @@
                     <view key="view" contentMode="scaleToFill" id="Sey-LJ-fhe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kU-Zs-5f8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CpO-p6-k1F">
+                                <rect key="frame" x="-240" y="0.0" width="240" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp4-Dk-YtA">
+                                        <rect key="frame" x="30" y="70" width="41" height="30"/>
+                                        <state key="normal" title="Home"/>
+                                        <connections>
+                                            <action selector="onShowHomePressed:" destination="41e-Ka-zPW" eventType="touchUpInside" id="Shc-KR-YJ7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISQ-7r-TmZ">
+                                        <rect key="frame" x="30" y="170" width="64" height="30"/>
+                                        <state key="normal" title="Mentions"/>
+                                        <connections>
+                                            <action selector="onShowMentionsPressed:" destination="41e-Ka-zPW" eventType="touchUpInside" id="aLB-56-sKP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSB-gi-dHP">
+                                        <rect key="frame" x="30" y="120" width="69" height="30"/>
+                                        <state key="normal" title="My Profile"/>
+                                        <connections>
+                                            <action selector="onShowProfilePressed:" destination="41e-Ka-zPW" eventType="touchUpInside" id="Hkt-nY-V6m"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95519649621212122" green="0.95519649621212122" blue="0.95519649621212122" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="aSB-gi-dHP" firstAttribute="top" secondItem="qp4-Dk-YtA" secondAttribute="bottom" constant="20" id="IMP-pj-1Wb"/>
+                                    <constraint firstItem="aSB-gi-dHP" firstAttribute="leading" secondItem="qp4-Dk-YtA" secondAttribute="leading" id="ZfY-2O-1FL"/>
+                                    <constraint firstItem="ISQ-7r-TmZ" firstAttribute="top" secondItem="aSB-gi-dHP" secondAttribute="bottom" constant="20" id="aWe-Uv-dVd"/>
+                                    <constraint firstItem="qp4-Dk-YtA" firstAttribute="leading" secondItem="CpO-p6-k1F" secondAttribute="leading" constant="30" id="p7S-zr-bGa"/>
+                                    <constraint firstItem="ISQ-7r-TmZ" firstAttribute="leading" secondItem="qp4-Dk-YtA" secondAttribute="leading" id="rwY-xT-fWy"/>
+                                    <constraint firstAttribute="width" constant="240" id="tl7-Mn-LaW"/>
+                                    <constraint firstItem="qp4-Dk-YtA" firstAttribute="top" secondItem="CpO-p6-k1F" secondAttribute="top" constant="70" id="u10-Tc-1Gd"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="pDU-OR-llE" appends="YES" id="xBo-T4-HdS"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CpO-p6-k1F" firstAttribute="top" secondItem="Sey-LJ-fhe" secondAttribute="top" id="DeS-0R-yzr"/>
+                            <constraint firstItem="q0h-b6-Yl4" firstAttribute="top" secondItem="7kU-Zs-5f8" secondAttribute="bottom" id="EcR-w5-J3L"/>
+                            <constraint firstItem="7kU-Zs-5f8" firstAttribute="top" secondItem="tMm-pI-fzg" secondAttribute="bottom" id="Tjj-CR-bmr"/>
+                            <constraint firstItem="7kU-Zs-5f8" firstAttribute="leading" secondItem="Sey-LJ-fhe" secondAttribute="leading" id="Yez-0d-LRd"/>
+                            <constraint firstItem="q0h-b6-Yl4" firstAttribute="top" secondItem="CpO-p6-k1F" secondAttribute="bottom" id="kcH-pp-crS"/>
+                            <constraint firstAttribute="trailing" secondItem="7kU-Zs-5f8" secondAttribute="trailing" id="uRe-gd-Q25"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="7kU-Zs-5f8" id="dC2-zc-YcD"/>
+                        <outlet property="menuView" destination="CpO-p6-k1F" id="Nlq-Fe-BjN"/>
+                        <outlet property="showHomeButton" destination="qp4-Dk-YtA" id="QB2-Vy-jIJ"/>
+                        <outlet property="showMentionsButton" destination="ISQ-7r-TmZ" id="h2J-IK-MTr"/>
+                        <outlet property="showProfileButton" destination="aSB-gi-dHP" id="sNp-fb-vyy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ec-yR-i9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="pDU-OR-llE">
+                    <connections>
+                        <action selector="onMenuPanGesture:" destination="41e-Ka-zPW" id="Po9-Lx-wyW"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="254" y="291"/>
         </scene>
     </scenes>
     <resources>
@@ -708,6 +768,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EqX-1l-gjX"/>
-        <segue reference="HCc-Ui-Teb"/>
+        <segue reference="Lp2-pf-AI3"/>
     </inferredMetricsTieBreakers>
 </document>

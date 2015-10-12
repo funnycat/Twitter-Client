@@ -29,7 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil{
             //go to logged in screen
             print("current user detected: \(User.currentUser!.name)")
-            var vc = storyboard.instantiateViewControllerWithIdentifier("NavigationFromLogin") as! UINavigationController
+      //      var vc = storyboard.instantiateViewControllerWithIdentifier("NavigationFromLogin") as! UINavigationController
+             var vc = storyboard.instantiateViewControllerWithIdentifier("MenuNavigationFromLogin") as! UIViewController
             window?.rootViewController = vc
         }
         return true

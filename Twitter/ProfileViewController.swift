@@ -23,6 +23,10 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(profileUser == nil){
+            profileUser = User.currentUser
+        }
 
         usernameLabel.text = profileUser.screenname
         nameLabel.text = profileUser.name
